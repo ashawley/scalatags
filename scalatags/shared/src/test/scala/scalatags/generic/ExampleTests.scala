@@ -8,7 +8,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
 
 
   val tests = TestSuite{
-    'manualImports-strCheck({
+    "manualImports"-strCheck({
       // bundle is scalatags.Text or scalatags.JsDom
       import bundle.short._
       div(
@@ -38,7 +38,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
 
     // bundle is scalatags.Text or scalatags.JsDom
     import bundle.all._
-    'splashExample-strCheck(
+    "splashExample"-strCheck(
       // import scalatags.Text.all._
       // OR
       // import scalatags.JsDom.all._
@@ -72,7 +72,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
       </html>
       """
     )
-    'helloWorld-strCheck(
+    "helloWorld"-strCheck(
       html(
         head(
           script("some script")
@@ -101,7 +101,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </html>
       """
     )
-    'variables-strCheck(
+    "variables"-strCheck(
     {
       val title = "title"
       val numVisitors = 1023
@@ -135,7 +135,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </html>
     """
     )
-    'controlFlow-strCheck(
+    "controlFlow"-strCheck(
     {
       val numVisitors = 1023
       val posts = Seq(
@@ -186,7 +186,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </html>
     """
     )
-    'functions-strCheck(
+    "functions"-strCheck(
     {
       def imgBox(source: String, text: String) = div(
         img(src:=source),
@@ -236,7 +236,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </html>
     """
     )
-    'attributes-strCheck(
+    "attributes"-strCheck(
       html(
         head(
           script("some script")
@@ -297,7 +297,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </html>
       """
     )
-    'classesAndCssCustom-strCheck(
+    "classesAndCssCustom"-strCheck(
       html(
         head(
           script("some script")
@@ -349,7 +349,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </html>
       """
     )
-    'nonStringAttributesAndStyles-strCheck(
+    "nonStringAttributesAndStyles"-strCheck(
       div(
         p(float.left)(
           "This is my first paragraph"
@@ -371,7 +371,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </div>
       """
     )
-    'forceStringifyingAttributesAndStyles-strCheck(
+    "forceStringifyingAttributesAndStyles"-strCheck(
       div(
         p(float:="left")(
           "This is my first paragraph"
@@ -392,14 +392,14 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </div>
       """
     )
-    'booleanAttributes-strCheck(
+    "booleanAttributes"-strCheck(
       div(input(readonly))
       ,
       """
         <div><input readonly="readonly" /></div>
       """
     )
-    'booleanAttributes2-strCheck(
+    "booleanAttributes2"-strCheck(
       div(input(readonly:=1))
       ,
       """
@@ -407,7 +407,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
       """
     )
 
-    'layouts-strCheck(
+    "layouts"-strCheck(
     {
       def page(scripts: Seq[Modifier], content: Seq[Modifier]) =
         html(
@@ -447,7 +447,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
     """
     )
 
-    'inheritence-strCheck(
+    "inheritence"-strCheck(
     {
       class Parent{
         def render = html(
@@ -494,7 +494,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
     )
 
 
-    'properEscaping-strCheck({
+    "properEscaping"-strCheck({
       val evilInput1 = "\"><script>alert('hello!')</script>"
       val evilInput2 = "<script>alert('hello!')</script>"
 
@@ -528,7 +528,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
     """
     )
 
-    'unsanitizedInput-strCheck({
+    "unsanitizedInput"-strCheck({
       val evilInput = "<script>alert('hello!')</script>"
 
       html(
@@ -554,7 +554,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </html>
     """
     )
-    'additionalImports-strCheck({
+    "additionalImports"-strCheck({
       // bundle is scalatags.Text or scalatags.JsDom
       import bundle._
       import styles2.pageBreakBefore
@@ -578,11 +578,11 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </div>
     """
     )
-    'typesafeCSS-strCheck(
+    "typesafeCSS"-strCheck(
       div(zIndex:=10),
       """<div style="z-index: 10;"></div>"""
     )
-    'customAttributesAndStyles-strCheck({
+    "customAttributesAndStyles"-strCheck({
       div(
         attr("data-app-key") := "YOUR_APP_KEY",
         css("background-color") := "red"
@@ -603,7 +603,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
     """
     )
 
-    'customTagNames-strCheck({
+    "customTagNames"-strCheck({
       html(
         head(
           script("some script")
@@ -638,7 +638,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
       </html>
     """
     )
-    'aria- strCheck(
+    "aria"- strCheck(
       div(
         div(id:="ch1Panel", role:="tabpanel", aria.labelledby:="ch1Tab")(
           "Chapter 1 content goes here"
@@ -666,7 +666,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
       """
     )
 
-    'data- strCheck(
+    "data"- strCheck(
       div(
         id:="electriccars",
         data.columns:="3",
@@ -686,7 +686,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
       """
     )
 
-    'frag-strCheck(
+    "frag"-strCheck(
       {
         div(
           h1("Hello"),
@@ -721,7 +721,7 @@ class ExampleTests[Builder, Output <: FragT, FragT](bundle: Bundle[Builder, Outp
         </div>
     """
     )
-    'modifier-strCheck(
+    "modifier"-strCheck(
       {
         div(
           cls := "my-bootstrap-class",

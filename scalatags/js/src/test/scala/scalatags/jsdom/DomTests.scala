@@ -10,9 +10,9 @@ import org.scalajs.dom.html.Paragraph
 
 object DomTests extends TestSuite{
   def tests = TestSuite{
-    'basic {
+    "basic" - {
       import scalatags.JsDom.all._
-      'children {
+      "children" - {
         val elem = div.render
         assert(elem.children.length == 0)
         elem.appendChild(p(1, "wtf", "bbq").render)
@@ -22,7 +22,7 @@ object DomTests extends TestSuite{
         assert(pElem.textContent == "1wtfbbq")
       }
 
-      'attributes {
+      "attributes" - {
         val url = "https://www.google.com/"
         val elem = a(
           href := url,
@@ -36,7 +36,7 @@ object DomTests extends TestSuite{
         assert(textNode.textContent == "Google")
       }
 
-      'styles {
+      "styles" - {
         val elem = div(
           color := "red",
           float.left,
@@ -52,9 +52,9 @@ object DomTests extends TestSuite{
         )
       }
     }
-    'fancy {
+    "fancy" - {
       import scalatags.JsDom.all._
-      'fragSeqsAreFrags{
+      "fragSeqsAreFrags" - {
         val rendered = Seq(
           h1("titless"),
           div("lol")
@@ -63,7 +63,7 @@ object DomTests extends TestSuite{
         val wrapped = div(rendered).toString
         assert(wrapped == "<div><h1>titless</h1><div>lol</div></div>")
       }
-      'boundAttributes {
+      "boundAttributes" - {
         var count = 0
         val elem = div(
           onclick := { () => count += 1},
@@ -74,7 +74,7 @@ object DomTests extends TestSuite{
         elem.onclick(null)
         assert(count == 1)
       }
-      'triggers {
+      "triggers" - {
         val labelElem = label("Default").render
 
         val inputElem = input(
@@ -93,12 +93,12 @@ object DomTests extends TestSuite{
 
       }
     }
-    'tagType{
+    "tagType" - {
       import scalatags.JsDom.all._
       val thing: Tag = div
     }
 
-    'crossTag{
+    "crossTag" - {
       class SharedTemplates[Builder, Output <: FragT, FragT](val bundle: scalatags.generic.Bundle[Builder, Output, FragT]){
         import bundle.all._
         val widget: Tag = div("hello")

@@ -74,10 +74,10 @@ trait PerfTests extends TestSuite{
   def calc(): String
   def name: String = this.toString
   def tests = TestSuite{
-    'correctness{
+    "correctness"-{
 
       TestUtil.strCheck(calc(), PerfTests.expected)
-      'performance{
+      "performance"-{
         println("Benchmarking " + this.name)
         val start = System.currentTimeMillis()
         var i = 0
